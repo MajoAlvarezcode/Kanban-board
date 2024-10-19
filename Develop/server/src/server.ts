@@ -15,7 +15,7 @@ const __dirname = dirname(__filename);
 
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 4000;
 
 
 // Serves static files in the entire client's dist folder

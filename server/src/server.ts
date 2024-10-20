@@ -14,7 +14,7 @@ const __dirname = dirname(__filename);
 
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = Number(process.env.PORT) || 3001;
 
 
 // Serves static files in the entire client's dist folder
@@ -31,9 +31,12 @@ if (process.env.NODE_ENV === 'production') {
 
 sequelize.sync()
   .then(() => {
-    app.listen(PORT, () => {
+    app.listen(PORT, '0.0.0.0', () => {
       console.log(`Server is live at http://localhost:${PORT}`);
     });
+
+
+    
   })
   .catch((err) => {
     console.error('Failed to sync the database:', err);
